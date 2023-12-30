@@ -26,6 +26,9 @@ public class CardManager {
                     cardManagerUI.printBusinessCards(businessCardList);
                     break;
                 case 3 :
+                    businessCardList = businessCardManagerDao.printBusinessCardList();
+                    break;
+                case 4 :
                     cardManagerUI.printExitMessage();
                     break while_loop;
                 default:

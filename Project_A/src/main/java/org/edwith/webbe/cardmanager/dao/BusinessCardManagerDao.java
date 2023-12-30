@@ -37,10 +37,10 @@ public class BusinessCardManagerDao {
                 String company = rs.getString("company");
                 Date date = rs.getDate("date");
 
-                BusinessCard role = new BusinessCard(name, tel, company);
-                role.setCreateDate(date);
+                BusinessCard card = new BusinessCard(name, tel, company);
+                card.setCreateDate(date);
 
-                card_list.add(role); // list에 반복할때마다 Role인스턴스를 생성하여 list에 추가한다.
+                card_list.add(card); // list에 반복할때마다 Role인스턴스를 생성하여 list에 추가한다.
             }
         }
         catch(Exception e){
@@ -79,5 +79,35 @@ public class BusinessCardManagerDao {
         }
 
         return businessCard;
+    }
+
+    public List<BusinessCard> printBusinessCardList(){
+        List<BusinessCard> card_list = new ArrayList<>();
+        Connection conn = null;
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            conn = DriverManager.getConnection(url, user, password);
+
+            String sql = "select * from info";
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                String name = rs.getString("name");
+                String tel = rs.getString("tel");
+                String company = rs.getString("company");
+                Date date = rs.getDate("date");
+
+                BusinessCard card = new BusinessCard(name, tel, company);
+                card.setCreateDate(date);
+
+                card_list.add(card); // list에 반복할때마다 Role인스턴스를 생성하여 list에 추가한다.
+                System.out.println(card.toString());
+            }
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
+        return card_list;
     }
 }
