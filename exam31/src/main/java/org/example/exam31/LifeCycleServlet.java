@@ -8,6 +8,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Enumeration;
 
 @WebServlet(name = "LifeCycleServlet", value = "/lifecycle")
 public class LifeCycleServlet extends HttpServlet {
@@ -23,6 +24,8 @@ public class LifeCycleServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        System.out.println("doGet 메서드 호출");
+
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
         out.println("<html>");
@@ -34,19 +37,37 @@ public class LifeCycleServlet extends HttpServlet {
         out.println("name : <input type='text' name='name'><br>");
         out.println("<input type='submit' value='ok'><br>");
         out.println("</form>");
+
+        // 헤더 이름 값에 대한 리스트를 가져온다.
+        Enumeration<String> headerNames = request.getHeaderNames();
+        out.println("{");
+
+        // 리스트에 있는 항목들을 뽑아낸다.
+        while(headerNames.hasMoreElements()){
+            // 리스트의 이름값을 뽑아냄
+            String headerName = headerNames.nextElement();
+
+            // 리스트의 해당 이름에 대한 값을 뽑아냄
+            String headerValue = request.getHeader(headerName);
+            out.println("\"" + headerName + "\" : " + headerValue + ", <br>");
+        }
+        out.println("}");
+
         out.println("</body>");
         out.println("</html>");
+
         out.close();
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        System.out.println("doPost 메서드 호출");
+
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
         String name = request.getParameter("name");
         out.println("<h1> hello " + name + "</h1>");
         out.close();
     }
-
 
 //    @Override
 //    protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
