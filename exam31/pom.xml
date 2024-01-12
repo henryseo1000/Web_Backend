@@ -36,6 +36,13 @@
             <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>
+
+<!--        반드시 추가하고 dependency 설치하기 / 반나절 헤멨다-->
+        <dependency>
+            <groupId>org.glassfish.web</groupId>
+            <artifactId>jakarta.servlet.jsp.jstl</artifactId>
+            <version>2.0.0</version>
+        </dependency>
     </dependencies>
 
     <build>
