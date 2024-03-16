@@ -21,11 +21,11 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Insert title here</title>
+    <title>JSTL | For Each</title>
 </head>
 <body>
-<c:forEach items="${list}" var="item">
-    ${item } <br>
-</c:forEach>
+    <c:forEach items="${list}" var="item">
+        ${item} <br>
+    </c:forEach>
 </body>
 </html>

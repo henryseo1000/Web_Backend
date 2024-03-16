@@ -25,11 +25,16 @@
         <li><a href="sum10.jsp">sum10.jsp</a></li>
         <li><a href="innerobjects.jsp">innerobjects.jsp</a></li>
         <li><a href="applicationscope01.jsp">applicationscope.jsp</a></li>
+        <li><a href="googleimport.jsp">googleimport.jsp</a></li>
         <li><a href="el01.jsp">el01.jsp</a></li>
         <li><a href="el02.jsp">el02.jsp</a></li>
         <li><a href="jstl01.jsp">jstl01.jsp</a></li>
         <li><a href="jstl02.jsp">jstl02.jsp</a></li>
         <li><a href="jstl03.jsp">jstl03.jsp</a></li>
+        <li><a href="jstl04.jsp">jstl04.jsp</a></li>
+        <li><a href="jstl05.jsp">jstl05.jsp</a></li>
+        <li><a href="jstl06.jsp">jstl06.jsp</a></li>
+        <li><a href="jstl07.jsp">jstl07.jsp</a></li>
     </ul>
 </body>
 </html>
